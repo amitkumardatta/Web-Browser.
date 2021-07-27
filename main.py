@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
+from PyQt5.QtGui import *
 
 
 class MainWindow(QMainWindow):
@@ -16,19 +17,19 @@ class MainWindow(QMainWindow):
         navbar = QToolBar()
         self.addToolBar(navbar)
 
-        back_btn = QAction('Back', self)
+        back_btn = QAction(QIcon('back (2).jpg'), 'Back', self)
         back_btn.triggered.connect(self.browser.back)
         navbar.addAction(back_btn)
 
-        forward_btn = QAction('Forward', self)
+        forward_btn = QAction(QIcon('forward1.jpg'), 'Forward', self)
         forward_btn.triggered.connect(self.browser.forward)
         navbar.addAction(forward_btn)
 
-        reload_btn = QAction('Reload', self)
+        reload_btn = QAction(QIcon('reload.png'), 'Reload', self)
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
 
-        home_btn = QAction('Home', self)
+        home_btn = QAction(QIcon('home.png'), 'Home', self)
         home_btn.triggered.connect(self.navigate_home)
         navbar.addAction(home_btn)
 
@@ -49,7 +50,8 @@ class MainWindow(QMainWindow):
         self.url_bar.setText(q.toString())
 
 
+
 app = QApplication(sys.argv)
-QApplication.setApplicationName('Amit Browser')
+QApplication.setApplicationName('Softech Browser')
 window = MainWindow()
 app.exec_()
